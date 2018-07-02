@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import * as PageList from './pages'
+import * as PageList from './pages';
 
 Vue.use(Router);
 

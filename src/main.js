@@ -3,8 +3,18 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import axios from 'axios';
 import VueAxios from 'vue-axios';
+import axios from 'axios';
+
+/** */
+import { Header, Tabbar, TabItem } from 'mint-ui';
+
+
+Vue.component(Header.name, Header);
+Vue.component(Tabbar.name, Tabbar);
+Vue.component(TabItem.name, TabItem);
+
+/** */
 
 Vue.config.productionTip = false;
 
