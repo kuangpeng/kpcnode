@@ -1,16 +1,25 @@
 <template>
-  <div id="app">
+  <v-app>
     <Header></Header>
     <div id="mainContent">
       <router-view/>
     </div>
     <MenuBar></MenuBar>
-  </div>
+  </v-app>
+  <!-- <div id="app">
+    <Header></Header>
+    <div id="mainContent">
+      <router-view/>
+    </div>
+    <MenuBar></MenuBar>
+  </div> -->
 </template>
 
 <script>
 import Header from '@/components/Layout/Header'
 import MenuBar from '@/components/Layout/MenuBar'
+import 'vuetify/dist/vuetify.min.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 export default {
   name: 'App',
@@ -26,7 +35,7 @@ export default {
 @import "./assets/style/main.css";
 
 
-html,body{
+/* html,body{
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -43,7 +52,7 @@ html,body{
   left: 0;
 }
 #mainContent{
-  /* padding-top: 40px; */
+  padding-top: 40px;
   padding-bottom: 50px;
-}
+} */
 </style>
