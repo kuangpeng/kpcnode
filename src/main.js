@@ -7,12 +7,7 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 
 /** */
-import { Header, Tabbar, TabItem } from 'mint-ui';
 
-
-Vue.component(Header.name, Header);
-Vue.component(Tabbar.name, Tabbar);
-Vue.component(TabItem.name, TabItem);
 
 /** */
 

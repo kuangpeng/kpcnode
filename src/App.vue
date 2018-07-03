@@ -23,6 +23,8 @@ export default {
 
 <style>
 @import "./assets/style/base.css";
+@import "./assets/style/main.css";
+
 
 html,body{
   width: 100%;
