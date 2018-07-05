@@ -36,3 +36,14 @@
 .media-bottom {
   vertical-align: bottom;
 }
+
+/**/
+.mt10{
+  margin-top: 10px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.pd10{
+  padding: 10px;
+}

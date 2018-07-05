@@ -13,7 +13,7 @@ export default new Router({
       component: PageList.Index
     },
     {
-      path: '/article:id',
+      path: '/detail/:id',
       name: 'ArticleDetail',
       component: PageList.ArticleDetail
     },
@@ -21,6 +21,11 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: PageList.User
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: PageList.Search
     }
   ]
 })
