@@ -1,11 +1,11 @@
 <template>
 <v-bottom-nav :active.sync="bottomNav" :value="true" fixed app>
-    <v-btn color="teal" flat value="recent" to="/">
+    <v-btn color="light-green" flat value="recent" to="/">
         <span>首页</span>
         <v-icon>home</v-icon>
     </v-btn>
 
-    <v-btn color="teal" flat value="favorites" to="/user">
+    <v-btn color="light-green" flat value="favorites" to="/user">
         <span>我的</span>
         <v-icon>account_circle</v-icon>
     </v-btn>

@@ -12,7 +12,7 @@
         </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" fixed temporary>
         <v-card color="grey darken-3" height="100" tile flat>
             <v-container fill-height>
                 <v-layout justify-center>
