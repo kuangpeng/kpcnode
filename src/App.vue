@@ -9,6 +9,7 @@
             <ToolBar></ToolBar>
         </v-content>
         <MenuBar></MenuBar>
+        <Tip></Tip>
     </v-app>
 </div>
 </template>
@@ -17,6 +18,7 @@
 import Header from '@/components/Layout/Header';
 import MenuBar from '@/components/Layout/MenuBar';
 import ToolBar from '@/components/layout/ToolBar';
+import Tip from '@/components/Utils/Tip';
 import 'vuetify/dist/vuetify.min.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
@@ -25,7 +27,8 @@ export default {
     components: {
         Header,
         MenuBar,
-        ToolBar
+        ToolBar,
+        Tip
     }
 }
 </script>

@@ -12,7 +12,7 @@
         </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer v-model="drawer" fixed temporary>
+    <v-navigation-drawer v-model="drawer" fixed temporary width="220">
         <v-card color="grey darken-3" height="100" tile flat>
             <v-container fill-height>
                 <v-layout justify-center>
@@ -24,9 +24,9 @@
             </v-container>
         </v-card>
         <template v-for="(subItem, index) in items">
-            <v-list-tile :key="subItem.title" to="/user">
+            <v-list-tile :key="subItem.title" to="/user" color="light-green">
                 <v-list-tile-action>
-                    <v-icon>{{ subItem.icon }}</v-icon>
+                    <v-icon color="light-green">{{ subItem.icon }}</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
@@ -57,7 +57,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

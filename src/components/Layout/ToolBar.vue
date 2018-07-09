@@ -1,9 +1,9 @@
 <template>
 <div>
-    <v-btn color="" dark fixed bottom left fab small class="btn-bottom-actions" @click="backPage">
+    <v-btn color="light-green" dark fixed bottom left fab small class="btn-bottom-actions" @click="backPage">
         <v-icon class="d-flex">undo</v-icon>
     </v-btn>
-    <v-btn color="" dark fixed bottom right fab small class="btn-bottom-actions">
+    <v-btn color="light-green" dark fixed bottom right fab small class="btn-bottom-actions" @click="showComment">
         <v-icon class="d-flex">comment</v-icon>
     </v-btn>
 </div>
@@ -15,6 +15,10 @@ export default {
     methods: {
         backPage: function(){
             this.$router.go(-1);
+        },
+        showComment(){
+            var now = new Date();
+            this.$store.commit('tipChange', now.getTime());
         }
     }
 }
