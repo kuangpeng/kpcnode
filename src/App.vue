@@ -1,67 +1,59 @@
 <template>
-<div id="app">
-    <v-app>
-        <Header></Header>
-        <v-content id="content">
-            <v-slide-x-transition mode="out-in">
-                <router-view/>
-            </v-slide-x-transition>
-            <ToolBar></ToolBar>
-        </v-content>
-        <MenuBar></MenuBar>
-        <Tip></Tip>
-    </v-app>
-</div>
+    <div>
+        <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </div>
 </template>
 
 <script>
-import Header from '@/components/Layout/Header';
-import MenuBar from '@/components/Layout/MenuBar';
-import ToolBar from '@/components/layout/ToolBar';
-import Tip from '@/components/Utils/Tip';
-import 'vuetify/dist/vuetify.min.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 export default {
-    name: 'App',
-    components: {
-        Header,
-        MenuBar,
-        ToolBar,
-        Tip
+    name: "App",
+    data:function(){
+        return {
+            scrollMap: {}
+        }
+    },
+    watch: {
+        $route(to, from){
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            let path = from.path.replace(/\//, '$');
+            this.scrollMap[path] = scrollTop;
+            localStorage.setItem("scrollMap", JSON.stringify(this.scrollMap));
+        }
+    },
+    updated: function(){
+        var hash = window.location.hash.slice(1);
+        var scrollMap = JSON.parse(localStorage.getItem('scrollMap'));
+
+        let path = hash.replace(/\//g, '$');
+        if(scrollMap[path] && this.$route.meta.keepAlive){
+            document.documentElement.scrollTop = scrollMap[path];
+            window.pageYOffset = scrollMap[path];
+            document.body.scrollTop = scrollMap[path];
+        }
     }
 }
 </script>
 
 <style>
-@import "./assets/style/base.css";
-@import "./assets/style/main.css";
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-#app {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+@import url('https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css');
+@import './assets/css/common.css';
+@import './assets/css/main.css';
+html,body{
     position: relative;
-    z-index: 100;
-    top: 0;
-    left: 0;
+    width: 100%;
 }
-
-#content>div{
-  padding-bottom: 50px;
+body{
+    overflow-y: auto;
+    background-color: #f9f9f9;
 }
-
-/* #mainContent{
-  padding-top: 40px;
-  padding-bottom: 50px;
-} */
+.container{
+    width: 100%;
+    z-index: 10;
+    margin-top: 46px;
+    margin-bottom: 50px;
+}
 </style>

@@ -1,0 +1,55 @@
+/** main.css*/
+a{
+    color: #000;
+}
+img{
+    vertical-align: middle;
+}
+/**/
+.mt10{
+    margin-top: 10px;
+}
+.mt15{
+    margin-top: 15px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+/**/
+img.img-rounded{
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+/* media css */
+.media, 
+.media-body{
+    overflow: hidden;
+    zoom: 1;
+}
+.media-body, .media-left, .media-right{
+    display: table-cell;
+    vertical-align: top;
+}
+.media-left, .media>.pull-left{
+    padding-right: 10px;
+}
+.media-right, .media>.pull-right{
+    padding-left: 10px;
+}
+.media-object{
+    display: block;
+}
+.media-body{
+    width: 10000px;
+}
+/***/

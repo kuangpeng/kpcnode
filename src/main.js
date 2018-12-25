@@ -1,30 +1,52 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
-import App from './App';
-import router from './router';
-import VueAxios from 'vue-axios';
-import axios from 'axios';
+import Vue from "vue";
+import VueRouter from 'vue-router';
+import Vuex from 'vuex';
+import {
+    Lazyload
+} from 'vant';
+
 import store from './store';
-import apis from './apis';
 
-/** */
-import Vuetify from 'vuetify';
+import App from "./App.vue";
 
-Vue.use(Vuetify);
+import url_config from './config/url';
 
-/** */
+import map from './router/index';
 
+Vue.use(Vuex);
+Vue.use(VueRouter);
+Vue.use(Lazyload);
 
-Vue.config.productionTip = false;
+const stores = new Vuex.Store(store);
 
-Vue.use(VueAxios, axios);
+Vue.prototype.$urlConfig = url_config;
 
-/* eslint-disable no-new */
+let router = new VueRouter({
+    routes: map
+});
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requireAuth)) {
+        if (!stores.getters.getToken) {
+            next({
+                path: '/login',
+                query: {
+                    redirect: to.fullPath
+                }
+            })
+        } else {
+            next()
+        }
+    } else {
+        next();
+    }
+});
+
 new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>'
-})
+    store: stores,
+    router,
+    el: "#app",
+    template: "<App/>",
+    components: {
+        App
+    }
+});

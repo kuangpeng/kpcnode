@@ -1,31 +1,31 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-
-import * as PageList from './pages';
-
-Vue.use(Router);
-
-export default new Router({
-  routes: [
+var router = [
     {
-      path: '/',
-      name: 'Index',
-      component: PageList.Index
+        name: 'home',
+        path: '/',
+        components: require('../views/Home.vue'),
+        meta: {
+            keepAlive: true,
+            isBack: true
+        }
     },
     {
-      path: '/detail/:id',
-      name: 'ArticleDetail',
-      component: PageList.ArticleDetail
+        name: 'newsDetail',
+        path: '/detail/:id',
+        components: require('../views/Detail.vue')
     },
     {
-      path: '/user',
-      name: 'User',
-      component: PageList.User
+        name: 'my',
+        path: '/my',
+        components: require('../views/My.vue'),
+        meta: {
+            requireAuth: true
+        }
     },
     {
-      path: '/search',
-      name: 'Search',
-      component: PageList.Search
+        name: 'login',
+        path: '/login',
+        components: require('../views/Login.vue')
     }
-  ]
-})
+];
+
+export default router;
